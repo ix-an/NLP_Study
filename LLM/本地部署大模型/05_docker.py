@@ -10,7 +10,7 @@ client = OpenAI(
 # 调用聊天接口
 try:
     response = client.chat.completions.create(
-        model="/models",  # 这里应该是模型名称，而不是路径
+        model="/models",  # 这里应该是docker创建容器时，指定的 --model 容器下目录
         messages=[
             {"role": "user", "content": "你好吗？"}
         ],
