@@ -3,7 +3,7 @@ from openai import OpenAI
 # 创建客户端实例
 # 如果你的Python代码运行在Docker容器所在的同一台机器上，使用localhost
 client = OpenAI(
-    base_url="http://localhost:8000/v1",  # 注意端口是8000，不是8008
+    base_url="http://localhost:8000/v1",  # 注意端口是 8000
     api_key="EMPTY"  # 可以设置为"EMPTY"或任意非空字符串，但不能是"none"
 )
 
