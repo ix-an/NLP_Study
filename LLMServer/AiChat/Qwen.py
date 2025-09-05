@@ -25,14 +25,15 @@ class Qwen:
             stream=stream,
             **self.gen_kwargs,
         )
-        # if not stream:
-        return response.choices[0].message.content
+        # 非流式回复
+        if not stream:
+            return response.choices[0].message.content
 
-        # # 流式回复
-        # for chunk in response:
-        #     yield f'data:{chunk.choices[0].delta.content}'
-        # # 结束标记
-        # yield 'data:[DONE]'
+        # 流式回复
+        for chunk in response:
+            yield f'data:{chunk.choices[0].delta.content}'
+        # 结束标记
+        yield 'data:[DONE]'
 
 
 
